@@ -3,7 +3,7 @@ Description=Aria2 File Download Manager
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/aria2c --conf-path=/home/www/aria2/aria2.conf
+ExecStart=/usr/bin/aria2c --conf-path=/home/www/aria2.conf.d/aria2.conf
 
 [Install]
 WantedBy=default.target
