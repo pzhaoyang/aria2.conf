@@ -8,7 +8,7 @@ serviceconf=/lib/systemd/system/aria2.service
 
 
 echo "install dependence package"
-sudo -E apt install nginx aria2
+sudo -E apt install nginx aria2 php7.2-fpm
 
 echo "Stop already started service"
 sudo systemctl stop aria2
