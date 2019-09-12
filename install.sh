@@ -36,6 +36,7 @@ sudo ln -sf $confdir/aria2.service $serviceconf
 
 sudo ln -sf $confdir/aria2.nginx.h5ai.conf $nginxconf
 
+sudo tar -xf nexcloud/nextcloud-16.0.4.tar.gz -C $h5aidir
 echo "Start services"
 sudo mount -t exfat /dev/sda1 $webroot/data
 
