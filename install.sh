@@ -4,12 +4,13 @@ webroot=/home/www
 confdir=$webroot/aria2.conf.d
 h5aidir=$webroot/_h5ai
 nginxconf=/etc/nginx/sites-enabled/default
-smbconf=/etc/samb/smb.conf
+smbconf=/etc/samba/smb.conf
 serviceconf=/lib/systemd/system/aria2.service
 
 
 echo "install dependence package"
-sudo -E apt install nginx aria2 php7.2-fpm samba samba-common
+sudo apt-get update
+sudo -E apt-get install -y  nginx aria2 php7.2-fpm samba samba-common exfat-fuse exfat-utils
 
 echo "Stop already started service"
 sudo systemctl stop aria2
@@ -36,7 +37,7 @@ sudo ln -sf $confdir/aria2.service $serviceconf
 
 sudo ln -sf $confdir/aria2.nginx.h5ai.conf $nginxconf
 
-sudo tar -xf nexcloud/nextcloud-16.0.4.tar.gz -C $h5aidir
+sudo tar -xf nextcloud/nextcloud-16.0.4.tar.gz -C $h5aidir
 echo "Start services"
 sudo mount -t exfat /dev/sda1 $webroot/data
 
